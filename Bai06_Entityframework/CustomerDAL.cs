@@ -15,6 +15,7 @@ namespace Bai06_Entityframework
         }
         public void DeleteCustomer(CustomerBEL cus)
         {
+            var DeleteCustomer = this.Customers.Where(c =>c.Id == cus.Id).FirstOrDefault();
             this.Customers.Remove(cus);
             this.SaveChanges();
         }
@@ -25,8 +26,15 @@ namespace Bai06_Entityframework
         }
         public void EditCustomer(CustomerBEL cus)
         {
-            this.Entry(cus).State = EntityState.Modified;
-            this.SaveChanges();
+            var EditCustomer = this.Customers.Where(c => c.Id == cus.Id).FirstOrDefault();
+            if (EditCustomer != null)
+            {
+                EditCustomer.Id = cus.Id;
+                EditCustomer.Name = cus.Name;
+                this.SaveChanges();
+            }
+           
+           
         }
     }
 }

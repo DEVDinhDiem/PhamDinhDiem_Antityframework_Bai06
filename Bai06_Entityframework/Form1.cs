@@ -44,7 +44,7 @@ namespace Bai06_Entityframework
             cus.Id = int.Parse(txtId.Text);
             cus.Name = txtName.Text;
 
-            cusBAL.DeleteCustomer(cus);
+            //cusBAL.DeleteCustomer(cus);
 
             int idx = dgvCustomer.CurrentCell.RowIndex;
             dgvCustomer.Rows.RemoveAt(idx);

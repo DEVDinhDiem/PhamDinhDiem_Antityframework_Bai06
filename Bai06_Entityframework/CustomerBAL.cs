@@ -19,8 +19,9 @@ namespace Bai06_Entityframework
         {
             dal.NewCustomer(cus);
         }
-        public void DeleteCustomer(CustomerBEL cus)
+        public void DeleteCustomer(int id, string name)
         {
+            var cus = new CustomerBEL() { Id = id, Name = name };
             dal.DeleteCustomer(cus);
         }
         public void EditCustomer(CustomerBEL cus)
